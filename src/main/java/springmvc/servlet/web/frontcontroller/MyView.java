@@ -17,7 +17,7 @@ public class MyView {
 
     /**
      * 모델 정보를 함께 받는다.
-     *
+     * Controller V3 부터 render
      * @param model
      * @param request
      * @param response
@@ -32,7 +32,13 @@ public class MyView {
         dispatcher.forward(request, response);
     }
 
-    // ControllerV2 에서의 render
+    /**
+     * ControllerV2 에서의 render
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void render(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request, response);
