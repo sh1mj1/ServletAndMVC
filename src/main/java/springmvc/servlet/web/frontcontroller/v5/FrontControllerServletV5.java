@@ -5,7 +5,11 @@ import springmvc.servlet.web.frontcontroller.MyView;
 import springmvc.servlet.web.frontcontroller.v3.MemberFormControllerV3;
 import springmvc.servlet.web.frontcontroller.v3.MemberListControllerV3;
 import springmvc.servlet.web.frontcontroller.v3.MemberSaveControllerV3;
+import springmvc.servlet.web.frontcontroller.v4.MemberFormControllerV4;
+import springmvc.servlet.web.frontcontroller.v4.MemberListControllerV4;
+import springmvc.servlet.web.frontcontroller.v4.MemberSaveControllerV4;
 import springmvc.servlet.web.frontcontroller.v5.adapter.ControllerV3HandlerAdapter;
+import springmvc.servlet.web.frontcontroller.v5.adapter.ControllerV4HandlerAdapter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,10 +40,15 @@ public class FrontControllerServletV5 extends HttpServlet {
         handlerMappingMap.put("/front-controller/v5/v3/members/new-form", new MemberFormControllerV3());
         handlerMappingMap.put("/front-controller/v5/v3/members/save", new MemberSaveControllerV3());
         handlerMappingMap.put("/front-controller/v5/v3/members", new MemberListControllerV3());
+
+        handlerMappingMap.put("/front-controller/v4/v3/members/new-form", new MemberFormControllerV4());
+        handlerMappingMap.put("/front-controller/v4/v3/members/save", new MemberSaveControllerV4());
+        handlerMappingMap.put("/front-controller/v4/v3/members", new MemberListControllerV4());
     }
 
     private void initHandlerAdapters() {
         handlerAdapters.add(new ControllerV3HandlerAdapter());
+        handlerAdapters.add(new ControllerV4HandlerAdapter());
     }
 
     @Override
